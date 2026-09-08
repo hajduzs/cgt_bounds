@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cgt_bounds"
+version = "1.0.0"
+description = "Minimal reproduction package for the numeric tables in the accompanying paper"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "numpy==2.5.2",
+    "scipy==1.18.0",
+    "galois==0.4.11",
+    "networkx==3.6.1",
+    "pandas==3.0.5",
+    "jinja2==3.1.6",
+    "matplotlib==3.11.1",
+    "py-expression-eval==0.3.14",
+]
+
+[project.optional-dependencies]
+test = ["pytest==9.1.1"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+markers = [
+    "slow: full-sweep checks (~minutes); skip with '-m \"not slow\"' for the everyday subset",
+    "bounds: exercises the scraped Brouwer bound tables in data/bounds/, which drift as the source is refreshed",
+]

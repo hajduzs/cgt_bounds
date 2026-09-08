@@ -1,0 +1,7 @@
+output/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# packaging build artifacts
+src/*.egg-info/
